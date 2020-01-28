@@ -35,13 +35,14 @@ public class Vol {
 	protected String srvcClCode;
 	protected String url;
 	protected String yngbgsPosblAt;
+	protected String actWkdy; //
+	protected String progrmCn; //
 	
 	public Vol() {}
 	public Vol(String actBeginTm, String actEndTm, String actPlace, String adultPosblAt, String gugunCd,
 			String nanmmbyNm, String noticeBgnde, String noticeEndde, String progrmBgnde, String progrmEndde,
 			String progrmRegistNo, String progrmSj, String progrmSttusSe, String sidoCd, String srvcClCode, String url,
-			String yngbgsPosblAt) {
-		super();
+			String yngbgsPosblAt, String actWkdy, String progrmCn) {
 		this.actBeginTm = actBeginTm;
 		this.actEndTm = actEndTm;
 		this.actPlace = actPlace;
@@ -59,9 +60,12 @@ public class Vol {
 		this.srvcClCode = srvcClCode;
 		this.url = url;
 		this.yngbgsPosblAt = yngbgsPosblAt;
+		this.actWkdy = actWkdy;
+		this.progrmCn = progrmCn;
 	}
 
-	//17가지 정보의 게터 세터
+
+	//19가지 정보의 게터 세터
 	public String getActBeginTm() {
 		return actBeginTm;
 	}
@@ -164,6 +168,18 @@ public class Vol {
 	public void setYngbgsPosblAt(String yngbgsPosblAt) {
 		this.yngbgsPosblAt = yngbgsPosblAt;
 	}
+	public String getActWkdy() {
+		return actWkdy;
+	}
+	public void setActWkdy(String actWkdy) {
+		this.actWkdy = actWkdy;
+	}
+	public String getProgrmCn() {
+		return progrmCn;
+	}
+	public void setProgrmCn(String progrmCn) {
+		this.progrmCn = progrmCn;
+	}
 	
 	@Override
 	public String toString() {
@@ -172,7 +188,7 @@ public class Vol {
 				+ ", noticeEndde=" + noticeEndde + ", progrmBgnde=" + progrmBgnde + ", progrmEndde=" + progrmEndde
 				+ ", progrmRegistNo=" + progrmRegistNo + ", progrmSj=" + progrmSj + ", progrmSttusSe=" + progrmSttusSe
 				+ ", sidoCd=" + sidoCd + ", srvcClCode=" + srvcClCode + ", url=" + url + ", yngbgsPosblAt="
-				+ yngbgsPosblAt + "]";
+				+ yngbgsPosblAt + ", actWkdy=" + actWkdy + ", progrmCn=" + progrmCn + "]";
 	}
 	
 }
