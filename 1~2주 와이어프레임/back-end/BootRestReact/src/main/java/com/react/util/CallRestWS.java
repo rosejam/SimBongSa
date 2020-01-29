@@ -1,5 +1,6 @@
 package com.react.util;
 
+
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -7,7 +8,7 @@ import org.apache.cxf.helpers.IOUtils;
 import org.apache.cxf.io.CachedOutputStream;
 
 public class CallRestWS {
-	public static String restClient() throws Exception{ //일단 퍼블릭 스태틱으로 바꿔봄
+	public String restClient() throws Exception{ //일단 퍼블릭으로 바꿔봄
 		String addr = "http://openapi.1365.go.kr/openapi/service/rest/VolunteerPartcptnService/getVltrSearchWordList"+"?ServiceKey=";
 		String serviceKey = "es9jiHOYsOYG9C2%2BzmyeSFxtnzPNcWqLMis2T6Ol2mU1rXVIUntZUjLnFo6W%2B5dKu3den7QwTLrY%2FSTg%2Fa%2F%2BCQ%3D%3D";
 		String parameter = "";
