@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,7 +26,7 @@ import com.a205.dto.Member;
 import com.a205.service.MemberService;
 
 import io.swagger.annotations.ApiOperation;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/rest")
 public class MemberRestController {
@@ -71,6 +72,8 @@ public class MemberRestController {
 	public ResponseEntity<Map<String, Object>> insertMember(@RequestBody Member member){
 		try {
 			boolean result = service.add(member);
+			System.out.println("---------------------" + member + "---------------------");
+
 			return response(result, true, HttpStatus.CREATED);
 		}catch(RuntimeException e) {
 			logger.error("회원 가입 실패", e);

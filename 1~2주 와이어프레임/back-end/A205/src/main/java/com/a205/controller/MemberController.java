@@ -29,10 +29,10 @@ public class MemberController {
 	@PostMapping("login.do")
 	public String getLogin(Member member, Model model, HttpSession session) {
 		try {
-			Member selected = service.search(member.getId());
+			Member selected = service.search(member.getM_id());
 			
-			if(selected!=null && member.getPassword().equals(selected.getPassword())) {
-				session.setAttribute("id", selected.getId());
+			if(selected!=null && member.getM_password().equals(selected.getM_password())) {
+				session.setAttribute("id", selected.getM_id());
 				session.setAttribute("member", selected);
 				model.addAttribute("member", selected);
 				return "redirect:/index.do";

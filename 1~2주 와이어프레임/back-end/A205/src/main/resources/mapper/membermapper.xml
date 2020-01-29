@@ -6,21 +6,22 @@
  	<select id="select" resultType="member" parameterType="string">
 		select * from `member` 
 		<if test ="value!=null">
-			where id = #{id}
+			where m_id = #{m_id}
 		</if>
 	</select>
 	
 	<update id="update" parameterType="member">
-		update `member` set password=#{password}, name=#{name}, email=#{email}, 
-							phone=#{phone}, address=#{address} where id=#{id} 
+		update `member` set m_password=#{m_password}, m_userid=#{m_userid}, m_email=#{m_email}, 
+							m_bgnTm=#{m_bgnTm}, m_endTm=#{m_endTm},m_address=#{m_address}, m_age=#{m_age}  where m_id=#{m_id} 
 	</update>
 	
 	<delete id="delete" parameterType="string">
-		delete from `member` where id=#{id}
+		delete from `member` where m_id=#{m_id}
 	</delete>
 	
 	<insert id="insert" parameterType="member">
-		insert into `member`(id,password,name,email,phone,address) 
-		  values(#{id},#{password},#{name},#{email},#{phone},#{address} )
+		insert into `member`(m_id,m_password,m_userid,m_email,m_bgnTm, m_endTm, m_age, m_address ) 
+		  values(#{m_id},#{m_password}, #{m_userid}, #{m_email}, 
+							#{m_bgnTm}, #{m_endTm}, #{m_age}, #{m_address} )
 	</insert>
 </mapper>
