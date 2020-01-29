@@ -80,8 +80,4 @@ public class VolHandler extends DefaultHandler {
 		this.list = list;
 	}
 
-//	public void main(String[] args) throws Exception {
-//		//System.out.println(CallRestWS.restClient());
-//		
-//	}
 }
