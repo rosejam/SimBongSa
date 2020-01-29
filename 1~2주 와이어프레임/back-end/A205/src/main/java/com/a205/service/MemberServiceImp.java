@@ -33,7 +33,7 @@ public class MemberServiceImp implements MemberService {
 	@Override
 	public boolean login(String id, String pw) {
 		Member member = dao.search(id);
-		if(pw.equals(member.getPassword())) {
+		if(pw.equals(member.getM_password())) {
 			return true;
 		}else {
 			throw new MemberException("비밀 번호 오류");
