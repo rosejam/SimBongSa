@@ -15,8 +15,6 @@ import categoryAllList from "lib/json/searchCategory.json";
 import "./Login.css";
 
 // import KakaoLogin from "components/user/snsLogin/Kakao";
-// import GoogleLogin from "components/user/snsLogin/Google";
-import GoogleLogin from "react-google-login";
 
 import ReactCountUp from "react-countup";
 import ScrollAnimation from "react-animate-on-scroll";
@@ -78,25 +76,6 @@ class Login extends React.Component<any, any> {
   async componentDidMount() {
     if (this.isLogedIn()) {
       this.props.history.push('/mainpage')
-    }
-    const { SearchActions, AuthActions, UserActions } = this.props;
-    // const { id_token } = this.props.match.params;
-    // 구글 로그인을 하고 성공했을 경우 url로 구글 id_token이 같이 넘어옴. 이를 사용하여 로그인 처리를 함
-    const hash = window.location.hash;
-    if (hash.length > 0) {
-      const splitedHash = hash.split("id_token=");
-      if (splitedHash.length > 1) {
-        const id_token = splitedHash[1].split("&")[0];
-        await AuthActions.googleLogin(id_token);
-        const token = this.props.result.toJS().token;
-        const userEmail = jwt.decode(token);
-        await UserActions.setLoggedInfo(userEmail);
-        storage.set("token", token);
-      }
-      const token = storage.get("token");
-      if (token !== null && token !== "undefined") {
-        this.props.history.push("/mainpage");
-      }
     }
   }
 
@@ -337,33 +316,9 @@ class Login extends React.Component<any, any> {
     }
   };
 
-
-  /* ☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★
-     handleGoogleLogin 함수는 구글 로그인 버튼에서 uxMode가 popup 일때만 작동함.
-     redirect 모드일때는 아래 함수는 작동하지 않고 redirect 지정 주소로 바로 이동하므로 사용시 주의
-     ☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★*/
-  handleGoogleLogin = async (response: any) => {
-    const { AuthActions, UserActions, history } = this.props;
-    // 구글로그인 성공할 경우 response로 로그인 정보가 담긴 객체 하나를 준다.
-    const id_token = response.getAuthResponse().id_token;
-    // 그 중 id_token 에 담긴 구글 로그인 정보를 백엔드에 전달해 줌.
-    await AuthActions.googleLogin(id_token);
-    const token = this.props.result.toJS().token;
-    const userEmail = jwt.decode(token);
-    UserActions.setLoggedInfo(userEmail);
-    storage.set("token", token);
-    const { userId } = this.props;
-    await UserActions.setPreferInfo(userId);
-    const { preferInfo } = this.props;
-    this.initializePreferInfo(preferInfo);
-
-    await this.initialSearch();
-    history.push("/mainpage");
-  };
-
   render() {
     const { email, password } = this.props.form.toJS(); // form 에서 email 과 password 값을 읽어옴
-    const { handleChange, handleLocalLogin, handleGoogleLogin } = this;
+    const { handleChange, handleLocalLogin } = this;
     const error = this.props.error.toJS();
     // const pagesNumbers = this.getPagesNumbers();
     return (
@@ -415,19 +370,6 @@ class Login extends React.Component<any, any> {
                 </Button>
               </Segment>
             </Form>
-            <Container textAlign="right">
-              <GoogleLogin
-                icon={true}
-                clientId={process.env.REACT_APP_GOOGLE_LOGIN_CLIENT_ID!}
-                onSuccess={handleGoogleLogin}
-                onFailure={result => console.log(result)}
-                cookiePolicy={"single_host_origin"}
-                responseType="id_token"
-                buttonText="구글 계정으로 로그인"
-                uxMode="redirect"
-                redirectUri={process.env.REACT_APP_FRONT_URI + "/login"}
-              />
-            </Container>
             <div className="authlink">
               <div>
                 <span className="message">비밀번호를 잊으셨나요?</span>
