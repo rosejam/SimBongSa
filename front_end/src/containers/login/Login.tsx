@@ -131,7 +131,6 @@ class Login extends React.Component<any, any> {
       // email 로그인인경우
         await AuthActions.localLogin({ email, password });
       }
-      console.log(this.props.result);
       if (this.props.result === "EmailAuthenticateNeed") {
         history.push("/mailresend");
         return;
