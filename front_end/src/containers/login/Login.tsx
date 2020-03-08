@@ -419,7 +419,7 @@ class Login extends React.Component<any, any> {
                 </Button>
               </Segment>
             </Form>
-            <Container textAlign="right">
+            {/* <Container textAlign="right">
               <GoogleLogin
                 icon={true}
                 clientId={process.env.REACT_APP_GOOGLE_LOGIN_CLIENT_ID!}
@@ -430,8 +430,8 @@ class Login extends React.Component<any, any> {
                 buttonText="구글 계정으로 로그인"
                 uxMode="redirect"
                 redirectUri={process.env.REACT_APP_FRONT_URI + "/login"}
-              />
-            </Container>
+              /> 
+            </Container> 구글 로그인 임시 제거!*/}
             <div className="authlink">
               <div>
                 <span className="message">비밀번호를 잊으셨나요?</span>
