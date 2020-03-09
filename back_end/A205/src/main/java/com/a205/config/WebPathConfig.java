@@ -21,4 +21,5 @@ public class WebPathConfig implements WebMvcConfigurer {
                 .addResourceLocations("file://" + resourcesLocation + "/")
                 .setCachePeriod(20);
     }
+
 }
