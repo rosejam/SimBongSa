@@ -54,7 +54,7 @@ public class MemberServiceImp implements MemberService {
 	public Member search(String userId) {
 		return dao.search(userId);
 	}
-
+	
 	@Override
 	public List<Member> searchAll() {
 		return dao.searchAll();
@@ -103,7 +103,7 @@ public class MemberServiceImp implements MemberService {
 			Member member = dao.search(userId);
 			int m_id = member.getM_id();
 			String m_age = memberPatch.getM_age();
-			System.out.println(m_age);
+			//System.out.println(m_age);
 			String m_bgnTm = memberPatch.getM_bgnTm();
 			String m_endTm = memberPatch.getM_endTm();
 			if (m_age.equals("")) {
@@ -258,7 +258,7 @@ public class MemberServiceImp implements MemberService {
 	@Override
 	public boolean alter_userPassword(String m_email, String m_password) {
 		String m_password2 = bcryptEncoder.encode(m_password);
-		System.out.println(m_password2);
+		//System.out.println(m_password2);
 		return dao.alter_userPassword(m_email, m_password2);
 	}
 }

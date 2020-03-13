@@ -54,7 +54,7 @@ public class VolHandler2 extends DefaultHandler {
 		} else if (qName.equals("rcritNmpr")) {
 			vol.setWanted(temp.toString());
 		} else if (qName.equals("item")) {
-			System.out.println(volcode + "크롤링시작"); // 아직 모집시작 안된 정보는 크롤링이 안됨....
+//			System.out.println(volcode + "크롤링시작"); // 아직 모집시작 안된 정보는 크롤링이 안됨....
 			try {
 				url = "https://1365.go.kr/vols/P9210/partcptn/timeCptn.do?type=show&progrmRegistNo=" + volcode;
 				map = crawler.getCurrencyRate(url);
@@ -69,7 +69,7 @@ public class VolHandler2 extends DefaultHandler {
 				// list.update(vol); /////
 
 			} catch (IOException e) {
-				e.printStackTrace();
+//				e.printStackTrace();
 			} finally {
 				list.add(vol);////
 			}

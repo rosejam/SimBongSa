@@ -79,7 +79,7 @@ public class VolHandler extends DefaultHandler {
 			//System.out.println("sido****" + sidoCd);
 		} else if (qName.equals("srvcClCode")) {
 			srvcClCode = temp.toString();
-			System.out.println(srvcClCode);
+//			System.out.println(srvcClCode);
 		} else if (qName.equals("url")) {
 			//url = temp.toString();
 			//vol.setUrl(url);
@@ -102,7 +102,7 @@ public class VolHandler extends DefaultHandler {
 				
 				list.add(vol);////
 			} catch (Exception e) {
-				e.printStackTrace();
+//				e.printStackTrace();
 				System.out.println(volcode + "missed~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			}
 		}

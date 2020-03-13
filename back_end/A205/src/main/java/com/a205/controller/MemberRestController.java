@@ -60,8 +60,9 @@ public class MemberRestController {
 		resultMap.put("data", data);
 		return new ResponseEntity<>(resultMap, hStatus);
 	}
-
-	@GetMapping("/Member")
+	
+	
+	/*@GetMapping("/Member")
 	@ApiOperation("전체 회원정보를 반환한다.")
 	public ResponseEntity<Map<String, Object>> getAllMember() {
 		try {
@@ -71,8 +72,8 @@ public class MemberRestController {
 			logger.error("목록조회실패", e);
 			return response(e.getMessage(), false, HttpStatus.CONFLICT);
 		}
-	}
-
+	}*/
+	
 	@SuppressWarnings("null")
 	@GetMapping("/Member/{userId}")
 	@ApiOperation("ID에 해당하는 하나의 회원정보를 반환한다. 프로필 사진도 가져오게 수정!")
@@ -188,7 +189,6 @@ public class MemberRestController {
 			logger.error("목록조회실패", e);
 			return response(e.getMessage(), false, HttpStatus.CONFLICT);
 		}
-
 	}
 
 	@GetMapping("/Member/{userId}/Vote")

@@ -76,7 +76,7 @@ public class VolParser {
 					}
 				}
 				//dao2.addPost(new Post("0", ""+cnt++, null, null, "0"));
-				System.out.println(vol);
+//				System.out.println(vol);
 			}
 			// System.out.println(list);
 		} catch (Exception e) {

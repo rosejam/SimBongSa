@@ -18,8 +18,8 @@
 	<select id="selectByFilter" resultType="vol"
 		parameterType="myfilter">
 		select v_id, v_title, v_pStatus, v_pBgnD, v_pEndD, v_mBgnD, v_mEndD,
-		r_id, ca_id, v_Auth, v_x, v_y from `vol` where (v_pStatus between 1 and
-		3)
+		r_id, ca_id, v_Auth, v_x, v_y from `vol` 
+		where v_pEndD > sysdate()
 		
 		<choose>
 			<when test="m_age == null">
@@ -32,9 +32,6 @@
 				 and (v_young = 'Y')
 			</otherwise>
 		</choose>
-		
-		
-		
 		
 		<choose>
 			<when test="v_pBgnD != null and v_pEndD != null">
@@ -141,8 +138,9 @@
 	<select id="selectByFilter2" resultType="vol"
 		parameterType="myfilter">
 		select v_id, v_title, v_pStatus, v_pBgnD, v_pEndD, v_mBgnD, v_mEndD,
-		r_id, ca_id, v_Auth, v_x, v_y from `vol` where v_pStatus between 1 and
-		3
+		r_id, ca_id, v_Auth, v_x, v_y from `vol`
+		where v_pEndD > sysdate()
+		
 		<choose>
 			<when test="v_pBgnD != null and v_pEndD != null">
 				and <![CDATA[v_pBgnD >= #{v_pBgnD} and v_pEndD <= #{v_pEndD}]]>

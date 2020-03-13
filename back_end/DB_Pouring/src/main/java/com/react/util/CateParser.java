@@ -68,7 +68,7 @@ public class CateParser { //카테고리에서 국제행사 2개는  쓰지말�
 
 	public static void main(String[] args) throws Exception {
 		for (int i = 1; i < 9; i++) {
-			new CateParser(i);
+//			new CateParser(i);
 		}
 	}
 
