@@ -18,7 +18,7 @@
 	<select id="selectByFilter" resultType="vol"
 		parameterType="myfilter">
 		select v_id, v_title, v_pStatus, v_pBgnD, v_pEndD, v_mBgnD, v_mEndD,
-		r_id, ca_id, v_Auth, v_x, v_y from `vol` 
+		r_id, ca_id, v_Auth, v_x, v_y from `vol`
 		where v_pEndD > sysdate()
 		
 		<choose>

@@ -41,7 +41,7 @@ public class VolRestController {
 		return new ResponseEntity<>(resultMap, hstatus);
 	}
 
-	@GetMapping("/titles/{no1}/{no2}")
+	/*@GetMapping("/titles/{no1}/{no2}")
 	@ApiOperation("titles / 한페이지 개수(고정해주세요!!) / 페이지 번호")
 	public ResponseEntity<Map<String, Object>> getVolList(@PathVariable int no1, @PathVariable int no2) {
 		try {
@@ -51,7 +51,7 @@ public class VolRestController {
 			logger.error("제목리스트조회실패", e);
 			return response(e.getMessage(), false, HttpStatus.CONFLICT);
 		}
-	}
+	}*/
 	
 	static SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 	static String format_time = formatter.format(System.currentTimeMillis());
@@ -94,7 +94,7 @@ public class VolRestController {
 			mf.setR_sidoNm3(r_sidoNm3);
 			mf.setR_gugunNm3(r_gugunNm3);
 			mf.setVol_title(vol_title);
-			List<Vol> v = service.searchByFilter(no1, no2, mf);
+			List<Vol> v = service.searchByFilter(no1, no2, mf); //vol_mini로 바꿔야할듯
 			return response(v, true, HttpStatus.OK);
 		} catch (Exception e) {
 			logger.error("제목리스트조회실패", e);
